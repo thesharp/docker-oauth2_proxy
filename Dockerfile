@@ -6,6 +6,7 @@ RUN wget "https://github.com/bitly/oauth2_proxy/releases/download/v2.2/${VERSION
 
 FROM alpine:latest
 
+RUN apk --no-cache add ca-certificates
 COPY --from=builder /oauth2_proxy /oauth2_proxy
 
 ENTRYPOINT ["/oauth2_proxy"]
